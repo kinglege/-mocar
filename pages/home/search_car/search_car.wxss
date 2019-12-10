@@ -1,0 +1,248 @@
+/* pages/home/search_car/search_car.wxss */
+.page_inp{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+page{
+  background-color: #fff;
+}
+.text-input{
+  line-height: 80rpx;
+  height: 80rpx;
+  padding:0 30rpx; 
+}
+.text_inp{
+  margin-top: 20rpx;
+  width: 608rpx;
+  /* line-height: 80rpx; */
+  height: 80rpx;
+  background-color: rgb(247,247,247);
+  border-radius: 80rpx;
+}
+.searchInput{
+  width:100rpx;
+  border: 1rpx solid #fff;
+  background-color: #fff;
+  font-size: 34rpx;
+
+  color: rgb(51,51,51);
+  line-height: 100rpx;
+  height: 80rpx;
+  margin: 0;
+  padding: 0;
+}
+.searchInput::after{
+  border:none;
+}
+.record{
+  display: flex;
+  flex-wrap: wrap;
+}
+.history_search{
+  display: flex;
+  height: 100rpx;
+  padding: 0 20rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.history_tit{
+color: rgb(51,51,51);
+font-size: 28rpx;
+}
+.clear_history{
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: rgb(247,247,247);
+  text-align: center;
+  font-size: 24rpx;
+}
+.cuIcon-search:before {
+	content: "\e65c";
+}
+.text-search{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 40rpx;
+}
+.search_type{
+   display: inline;
+  line-height: 50rpx;
+  background-color: rgb(247,247,247);
+  text-align: center;
+  font-size: 24rpx;
+  margin: 20rpx 20rpx;
+}
+
+
+.service_category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  margin-top: 15rpx;
+  background-color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.category_time{
+  font-size: 22rpx;
+}
+.category_tit {
+  color: rgb(34, 34, 34);
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.category_product {
+  margin-top: 2rpx;
+  padding: 0 20rpx;
+  flex-wrap:wrap;
+  background-color: #fff;
+  height: 180rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product_img {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.product_img image {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.product_left {
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.product_name {
+  padding-left: 30rpx;
+  font-size: 26rpx;
+  color: rgb(24, 24, 24);
+  font-weight: 700;
+}
+
+.product_right {
+  color: red;
+  letter-spacing: 2rpx;
+}
+
+
+/* ========================== */
+/* pages/information/information.wxss */
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
+}
+
+.cu-btn{
+  padding: 0 100rpx;
+  position: absolute;
+  bottom: 50rpx;
+  left: 30rpx;
+  width: 90%;
+  height: 100rpx;
+}
+.VerticalNav.nav .cu-item{
+  font-weight: 700;
+  /* color: rgb(34,34,34); */
+  font-size: 28rpx;
+  line-height: 100rpx;
+}
+.cu-list.menu>.cu-item .content>view:first-child{
+  font-size:24rpx;
+}
+.text_num{
+  font-size: 20rpx;
+}
+.text-red, .line-red, .lines-red{
+  font-size: 26rpx;
+}
+image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.text-grey, .line-grey, .lines-grey{
+  color: rgb(29,29,29);
+  font-size: 24rpx;
+}
+.text-gray, .line-gray, .lines-gray{
+  color: #f74342;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+}
+
+.cu-tags{
+  transform: translateY(23rpx);
+}
+.cu-tags{
+  font-size: 20rpx;
+  background-color:#fff;
+}
+/* .content{
+  padding: 0 20rpx;
+} */
+.search{
+  width: 100%;
+  height: 90rpx;
+  text-align: center;
+  /* border: 1px solid rgb(247,247,247); */
+  overflow: hidden;
+}
+.search input{
+  /* margin-right: 20rpx; */
+  text-align: center;
+  border-radius: 30rpx;
+  width: 100%;
+  margin-top: 10rpx;
+  height: 70rpx;
+  background-color: #f7f7f7;
+}
+
+
+
+/* =============== */
+/* pages/component/nav/nav.wxss */
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+}
+.VerticalMain{
+  background-color: #f1f1f1;
+}

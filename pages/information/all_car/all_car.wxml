@@ -1,0 +1,48 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>选品牌</view>
+  </view>
+</view>
+
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - {{CustomBar}}px)" scroll-with-animation="true" enable-back-to-top="true">
+  <block wx:for="{{brand}}" wx:key>
+    <view class="padding-tb-xs padding-lr indexItem-{{item.firstletter}}" id="indexes-{{item.firstletter}}" data-index="{{item.firstletter}}">{{item.firstletter}}</view>
+    <view class="cu-list menu-avatar no-padding bg-white">
+      <view class="flex align-center padding-lr padding-tb-sm solid-bottom" bindtap="showModal" data-brand_id="{{item2.id}}" wx:for='{{item.data}}' wx:for-index="index2" wx:for-item="item2" wx:for-index="sub">
+        <view style="width:60rpx;height:60rpx ">
+          <image wx:if='{{item2.img}}' src="{{'https:' + item2.img}}" style="width:100%;height:100%;border-radius:50%"></image>
+        </view>
+        <view class="font-default margin-left">{{item2.name}}</view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item" wx:for="{{brand}}" wx:key id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{brand[index].firstletter}}</view>
+  </view>
+</view>
+<!--选择显示-->
+<view hidden="{{hidden}}" class="indexToast">
+  {{listCur}}
+</view>
+<!-- 模态框 -->
+<!-- <view class="modal-dialog" wx:if="{{showModal}}"> -->
+<view class="cu-modal drawer-modal justify-end {{DrawerModalR?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <scroll-view style="height:100%" scroll-y>
+      <view class="cu-list menu text-left">
+        <navigator open-type="redirect" url="./configuration/configuration?series_id={{item.id}}" class="cu-item arrow" wx:for="{{series}}" wx:key>
+          <view class="content">
+            <view>{{item.name}}</view>
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- </view> -->

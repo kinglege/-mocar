@@ -1,0 +1,142 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed  bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <!-- <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-back'></text>
+      <text class='icon-homefill'></text>
+    </navigator> -->
+    <view class='content' style='top:{{StatusBar}}px;'>走吧Mocar</view>
+  </view>
+</view>
+
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{imgUrls.banner}}" wx:key>
+    <view wx:if='{{index==0}}' bindtap="showModalClick" style="width:100%;height:100%">
+      <image src="{{item.img}}"></image>
+    </view>
+    <view wx:else data-data="{{item}}" bindtap="toBannerLink" style="width:100%;height:100%">
+      <image src="{{item.img}}"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<!-- 链接位 -->
+<view class="banner-img" bindtap="showModalClick">
+  <image src="../../images/banner_bottom.png"></image>
+</view>
+
+<!-- 搜索 -->
+<!-- <view class="padding-lr-sm padding-top-sm bg-white">
+  <view class="index_car" bindtap="add_car">
+    <image src="../../images/search_icon" style="width:30rpx;height:30rpx"></image>
+    <text>绑定您的汽车</text>
+  </view>
+</view> -->
+<!-- 导航 -->
+<view class="flex justify-around padding-tb-sm bg-white">
+  <view data-data="{{item}}" bindtap="toBannerLink" class="grid_item" wx:for="{{imggrid.banner}}" wx:key>
+    <image src="{{item.img}}"></image>
+    <text class="item_text">{{item.title}}</text>
+  </view>
+</view>
+
+<!-- 走吧热点 -->
+<view class="hotspot bg-white">
+  <view class="hotspot_left padding-left">
+    <image src="../../images/hot_1.png"></image>
+  </view>
+  <swiper indicator-dots="{{false}}" circular="{{true}}" autoplay="{{autoplay}}" interval="{{3000}}" vertical='{{true}}' duration="{{500}}" class="bg-white" style="width:100%;height:100%">
+    <swiper-item wx:for='{{scollList}}' wx:key>
+      <view class="hotspot_right padding-tb align-center">
+        <view class="flex align-center padding-right-lg">
+          <view class="hotspot_img">
+            <image src="{{item.headImg}}"></image>
+          </view>
+          <view class="margin-left-sm font-gray-default" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.username}}</view>
+        </view>
+        <view class="hotspot_project font-gray-default">预约
+          <text class="text-red">{{item.serve_title}}</text> 服务
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+</view>
+<!-- 广告 -->
+
+<view class="text-center bg-white" data-data="{{horizontal.banner[0]}}" bindtap="toBannerLink">
+  <image src="{{horizontal.banner[0].img}}" style="width:700rpx;height:200rpx"></image>
+</view>
+
+<!-- 每日必逛 -->
+<view class="product" wx:for='{{imgpros}}' wx:key>
+  <view class="product_tit">
+    <text class="tit1">{{item.title}}</text>
+    <text class="tit2 font-gray-default">{{item.desc}}</text>
+  </view>
+  <view class="product_name flex">
+    <view class="img_left" data-data="{{item.banner[0]}}" bindtap="toBannerLink">
+      <image src="{{item.banner[0]['img']}}"></image>
+    </view>
+    <view class="img_right">
+      <view class="img_right_top" data-data="{{item.banner[1]}}" bindtap="toBannerLink">
+        <image src="{{item.banner[1]['img']}}"></image>
+      </view>
+      <view class="img_bottom flex">
+        <view class="img_bottom_left" data-data="{{item.banner[2]}}" bindtap="toBannerLink">
+          <image src="{{item.banner[2]['img']}}"></image>
+        </view>
+        <view class="img_bottom_right" data-data="{{item.banner[3]}}" bindtap="toBannerLink">
+          <image src="{{item.banner[3]['img']}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 汽车清洁 -->
+<view class="product">
+  <view class="clean" wx:for='{{imgadvertisement}}' wx:key>
+    <view class="clean_tit">
+      <text class="tit1">{{item.title}}</text>
+      <text class="tit2 font-gray-default">{{item.desc}}</text>
+    </view>
+    <view class="clean_name flex">
+      <view class="clean_left" data-data="{{item.banner[0]}}" bindtap="toBannerLink">
+        <image src="{{item.banner[0].img}}"></image>
+      </view>
+      <view class="clean_right" data-data="{{item.banner[1]}}" bindtap="toBannerLink">
+        <image src="{{item.banner[1].img}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='modal-mask' bindtap='modalDelete' wx:if='{{modal_mask}}'>
+
+</view>
+<view class='modal-dialog' wx:if='{{showNewPpeoplePackageModal}}'>
+  <image bindtap="modalDelete" data-target="modal" class="modal-delete" src="../../images/delete.png"></image>
+  <scroll-view class='padding-lr' style="height:580rpx;margin-top:100rpx;" scroll-y>
+    <view class="modal-activity " wx:for="{{giftPackage.coupon}}" wx:key>
+      <view class="flex justify-between align-center padding" style="padding:35rpx">
+        <view style="margin-top:15rpx;">
+          <view class="text-red font-xxl">{{item.title}}</view>
+          <view class="padding-top-xs font-xs" style="color:rgb(251,204,99)">{{item.remarks}}</view>
+        </view>
+        <view class="padding-right-lg text-red" style="padding-right:42rpx;padding-top:20rpx;font-size:47rpx;font-bold" wx:if="{{item.type==1}}">
+          <view>{{item.discount*10}} 折</view>
+        </view>
+        <view class="padding-right-lg text-red" style="padding-right:44rpx;padding-top:28rpx;font-size:47rpx;font-bold" wx:if="{{item.type==2}}">
+          <view>￥{{item.reduce_money}}</view>
+        </view>
+        <view class="padding-right-lg text-red" style="padding-right:42rpx;padding-top:30rpx;font-size:47rpx;font-bold" wx:if="{{item.type==3}}">
+          <view>免费</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- <view class="modal-activity"></view>
+    <view class="modal-activity"></view> -->
+  <view class="text-center" data-id="{{item.id}}" bindtap="collectImmediately" style="position:absolute;left:50%;margin-left:-273rpx;bottom:15rpx;">
+    <image class="modal-receive" src="https://gzch.oss-cn-beijing.aliyuncs.com/office/image/anniu.png"></image>
+  </view>
+</view>

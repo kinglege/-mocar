@@ -1,0 +1,128 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <!-- <view class='content' style='top:{{StatusBar}}px;'>Tab索引</view> -->
+  </view>
+</view>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{data.banner}}" wx:key>
+    <image src="{{item.img}}" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+<!-- 信息 -->
+<view class="ticket_info padding-lr-sm">
+  <view class="info_top flex align-center">
+    <view class="info_left flex cu-chat">
+      <view class="Wash">{{data.title}}</view>
+      <view class="info_pirce flex margin-top-sm" wx:if='{{data.type==1}}'>
+        <view class="p1 main-font-color padding-right-sm">￥ {{data.price?data.price:0}}</view>
+        <view class="p2 font-gray-default">原价：￥{{data.market_price?data.market_price:0}}</view>
+      </view>
+      <view wx:else class="info_pirce flex margin-top-sm">
+        <view class="font-sm main-font-color padding-right-sm">预约单</view>
+      </view>
+    </view>
+    <button wx:if='{{auth}}' class="btn" open-type="share">
+      <view class="info_right flex cu-chat align-center">
+        <view class="info_right_img">
+          <image src="../../../images/share.png"></image>
+        </view>
+        <view class="p3 font-gray-default">分享好友</view>
+      </view>
+    </button>
+    <button wx:else class="btn" bindtap="to_login">
+      <view class="info_right flex cu-chat align-center">
+        <view class="info_right_img">
+          <image src="../../../images/share.png"></image>
+        </view>
+        <view class="p3">分享好友</view>
+      </view>
+    </button>
+  </view>
+  <view class="info_time flex justify-between align-center font-gray-default">
+    <view>工时费：￥{{data.hours_money?data.hours_money:0}}</view>
+    <view>销量：{{data.sales_volume?data.sales_volume:0}}</view>
+  </view>
+</view>
+<!-- 领取 -->
+<!-- <view class="receive bg-white flex justify-between align-center padding-lr-sm" wx:if="{{data.coupon.length}}">
+  <view class="receive_new">{{data.coupon[0].title}}</view>
+  <view class="receive_collar">立即领取</view>
+</view> -->
+<!-- 领取 -->
+<view class="receive bg-white flex justify-between align-center padding-lr-sm" wx:if='{{data.coupon.length}}'>
+  <view class="receive_new font-gray-default">{{data.coupon[0].title}}</view>
+  <view class="receive_collar" bindtap="showModal" data-target="bottomModal">立即领取</view>
+  <!-- <button class="cu-btn bg-green receive_collar" bindtap="showModal" data-target="bottomModal">立即领取</button> -->
+</view>
+<!-- 魔界logo部分 -->
+<view class='detail_all' bindtap="details_next" data-id="{{item.shop_id}}" wx:for="{{shop}}" wx:key>
+  <view class="flex">
+    <view class='detail_img'>
+      <image src='../../../images/details_logo.png'></image>
+    </view>
+    <view class='detail_top'>
+      <view class='text_top'>
+        <text class='txt1'>{{item.title}}</text>
+      </view>
+      <view class='txt3 receive_new'>地址：{{item.address}}</view>
+    </view>
+  </view>
+  <view class="store_right">
+    <image src="../../../images/next.png"></image>
+  </view>
+</view>
+<!-- 优惠券模态框 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <!-- <view class="cu-bar bg-white">
+      <view class="action text-green">确定</view>
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view> -->
+    <view class="coupon">
+      <view class="coupon_modl font-xxl padding-tb">优惠券</view>
+      <view class="padding-lr-sm effective" wx:for="{{data.coupon}}" wx:key style="background-image: url({{!item.draw_log?'https://gzch.oss-cn-beijing.aliyuncs.com/office/icon/card_ticket.png':'https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E4%BC%98%E6%83%A0%E5%88%B8%E5%A4%B1%E6%95%88.png'}})">
+        <view class="effective_info">
+          <view class="info_name flex">
+            <view class="text-red padding-right-xs" data-id="index" wx:if="{{item.type==1}}">{{item.discount*10}}折</view>
+            <view class="text-red padding-right-xs" data-id="index" wx:elif="{{item.type==2}}">￥{{item.reduce_money}}</view>
+            <view class="text-red padding-right-xs" data-id="index" wx:else>全免券</view>
+            <!-- <view class="text-red padding-right-xs">￥10</view> -->
+            <view>{{item.title}}</view>
+          </view>
+          <view class="info_type font-gray-default">{{item.remarks}}</view>
+          <view class="info_time font-gray-default">{{item.start_time}}至{{item.end_time}}</view>
+        </view>
+        <view class="info_price" data-id="{{item.id}}" bindtap="next_price">
+          <view class="qq">{{item.draw_log?"已领取":"立即领取"}}</view>
+        </view>
+      </view>
+      <view class="padding-lr-sm padding-tb">
+        <button bindtap="hideModal" class='cu-btn  bg-main-color-gradual shadow lg block'>确认</button>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 服务详情内容部分 -->
+<view class='article'>
+  <import src="../../../wxParse/wxParse.wxml" />
+  <view class="wxParse padding-sm">
+    <scroll-view style="" scroll-y='true'>
+      <template is="wxParse" data="{{wxParseData:desc.nodes}}" />
+    </scroll-view>
+  </view>
+</view>
+<!-- 底部标签 -->
+<view class="bar flex align-center">
+  <view class="bar_left ">
+    <button class="contact-btn" open-type='contact'>
+      <view class="bar_left_img">
+        <image src="../../../images/headset.png"></image>
+      </view>
+      <view class="bar_left_txt margin-left-xs accounts_left">客服</view>
+    </button>
+  </view>
+  <view class="bar_right bg-main-color-gradual" bindtap="place_order">{{data.type==2?"立即预约":"立即下单"}}</view>
+</view>

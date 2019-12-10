@@ -1,0 +1,144 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>服务下单</view>
+  </view>
+</view>
+
+<!-- 下单人员信息 -->
+<view class="order_info padding-lr-sm flex" bindtap="change_car">
+  <view class="flex">
+    <view class="order_info_img">
+      <image src="../../../../img/time_5.png"></image>
+    </view>
+    <view class="order_info_name">
+      <view class="order_right flex">
+        <view class="order_car">{{userInfo.username}}</view>
+        <view class="order_tel font-gray-default">{{userInfo.mobile}}</view>
+      </view>
+      <view class="order_info_car">
+        <view class="order_car">我的汽车：</view>
+        <view class="order_add bg-main-color-gradual" wx:if="{{!playOrderSelectCar.full_name}}">添加车辆</view>
+        <view class="order_type" wx:else>{{playOrderSelectCar.full_name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="order_icon">
+    <image src="../../../../images/next.png"></image>
+  </view>
+</view>
+
+<!-- 服务类目 -->
+<view class="service_category">
+  <view class="category_tit">服务类目</view>
+</view>
+<view class="category_product flex">
+  <view class="product_left flex">
+    <view class="product_img">
+      <image src="{{img}}"></image>
+    </view>
+    <view class="product_name">{{title}}</view>
+  </view>
+  <view class="product_right">
+    <view wx:if='{{payType==1}}'>￥{{money}}</view>
+    <view wx:if='{{payType==2}}'>预约单</view>
+  </view>
+</view>
+
+<!-- 线下门店 -->
+<view class="store_tit">线下门店</view>
+<view class="store_all flex" bindtap="store">
+  <view class="store_left flex">
+    <view class="store_left_img">
+      <image src="../../../../images/details_logo.png"></image>
+    </view>
+    <view class="store_left_introduce">
+      <view class="store_left_top flex">
+        <view class="store_txt1">{{shop.title}}</view>
+
+      </view>
+      <view class="store_left_bottom font-gray-default">地址：{{shop.address}}</view>
+    </view>
+  </view>
+  <view class="store_right">
+    <image src="../../../../images/next.png"></image>
+  </view>
+</view>
+
+<!-- 支付 -->
+<view class="payment">
+  <view class="payment_one">
+    <view class="x1">支付方式</view>
+    <view class="x2 font-gray-default">微信支付</view>
+  </view>
+  <view wx:if='{{payType==1}}' class="payment_two">
+    <view class="x1">优惠券</view>
+    <view class="x2 flex font-gray-default" bindtap="getCoupon">
+      <view class="text-red font-xl">{{coupon_money}}</view>
+      <view class="x2_txt margin-left">{{playOrderSelectCoupon==""?"不使用优惠券":playOrderSelectCoupon.title}}</view>
+      <view class="x2_img">
+        <image src="../../../../images/next.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="payment_two" wx:if='{{payType==1}}'>
+    <view class="x1">魔豆抵扣
+      <text class="text-gray font-xs margin-left-sm">最高抵扣40%现金</text>
+    </view>
+    <view class="x2 flex font-gray-default" bindtap="showDialogBtn">
+      <view class="text-red font-xl margin-right-sm">{{order_score?order_score:0}}</view>
+      <view class="x2_img">
+        <image src="../../../../images/next.png"></image>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+  
+  </view>
+  <!-- 输入魔豆模态框 -->
+
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog bg-white" wx:if="{{showModal}}">
+    <view class="modal-title">输入魔豆数量</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" value="{{order_score}}" type="number" maxlength="4" bindinput="inputChange" class="input" placeholder="请输入数量"></input>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+  <!-- ================== -->
+  <view class="payment_three">
+    <view class="x1">会员优惠</view>
+    <view class="x2 font-gray-default">暂无</view>
+  </view>
+</view>
+<!-- 订单备注 -->
+<view class="bg-white" style="margin-top:1rpx; padding-top:20rpx">
+  <view class="x1  padding-left-sm">订单备注：</view>
+  <textarea class="font-gray-default padding-sm font-default" style="width:100%;height:140rpx;z-index:-1;" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" maxlength="100" value="{{orderRemarks}}" placeholder="填写备注信息"></textarea>
+</view>
+
+
+<!-- 底部 -->
+<view class="settle_accounts">
+  <view class="accounts_left flex">
+    <view class="accounts_left_txt " wx:if='{{payType==1}}'>合计：</view>
+    <view class="accounts_left_price" wx:if='{{payType==1}}'>￥{{realPayMoney}}</view>
+    <view class="accounts_left_price" wx:if='{{payType==2}}'>预约单</view>
+
+  </view>
+  <view class="accounts_right bg-main-color-gradual" bindtap="playOrder">提交订单</view>
+  <!-- <view class="accounts_right bg-main-color-gradual" bindtap="playOrder">提交订单</view> -->
+</view>
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>加载中...</view>
+</view>

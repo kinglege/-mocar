@@ -1,0 +1,59 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>申请退款</view>
+  </view>
+</view>
+<!-- 商品 -->
+<view class="header">
+  <view class="header_img">
+    <image src="{{orderDetail.service_image}}"></image>
+  </view>
+  <view class="header_text font-default">{{orderDetail.service_title}}</view>
+</view>
+<!-- 金额 -->
+<view class="margin-tb-xs ">
+  <view class="flex align-center justify-between bg-white padding-sm ">
+    <view class="font-black-default">
+      金额
+    </view>
+    <view class="money-num text-red">{{orderDetail.realTotalMoney}}</view>
+  </view>
+  <view class="flex align-center justify-between bg-white padding-sm " style="margin-top:1rpx;">
+    <view class="font-black-default">
+      退款方式
+    </view>
+    <view class="font-sm">(1-3个工作日内退款至支付方)</view>
+  </view>
+</view>
+
+
+<!-- 退款原因 -->
+<view class="reason font-gray-default">选择取消的原因</view>
+<view class="reason-all">
+  <radio-group class="block" bindchange='selectReason'>
+    <view class="flex justify-between padding-sm bg-white solid-top" wx:for='{{reason}}'>
+      <view class="title font-black-default font-sm">{{item.title}}</view>
+      <radio class='red' value='{{item.title}}' style='transform: scale(0.8)'></radio>
+    </view>
+  </radio-group>
+</view>
+<view class="margin-top-xs bg-white padding-sm">
+  <view class="font-default font-black-default">退款备注:</view>
+  <textarea class='font-sm padding-tb-sm' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" value="{{refundReson}}" placeholder="请填写订单备注"></textarea>
+</view>
+<view class="tips flex margin-top-xs font-default">
+  <view class="tips_img">
+    <image src="../../../images/tips.png"></image>
+  </view>
+  <view class="tips_txt1 font-black-default">温馨提示：</view>
+  <view class="tips_txt2">保养价格及保养服务以实际为准！</view>
+</view>
+
+<!-- 申请退款 -->
+<view class="apply justify-between font-xxl" style="z-index:999;">
+  <view class="apply_no" bindtap="noApplication">暂不申请</view>
+  <view class="apply_plase bg-main-color-gradual" bindtap='applyRefund'>申请退款</view>
+</view>

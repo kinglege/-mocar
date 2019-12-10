@@ -1,0 +1,84 @@
+<!-- 头部配置 -->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content' style='top:{{StatusBar}}px;'>魔界服务</view>
+  </view>
+</view>
+<view style="">
+  <view class="search bg-white padding-lr-sm">
+    <input data-service="{{service}}" bindtap="input_search" type="text" value="搜索服务"></input>
+  </view>
+</view>
+
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav bg-white" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - {{2*CustomBar+100}}rpx)">
+    <view class="cu-item  {{index==TabCur?'text-red cur':'font-black-default'}}" wx:for="{{service}}" wx:key bindtap='tabSelect' data-id="{{index}}" style="">
+      {{item.title}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - {{2*CustomBar+100}}rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr-sm" wx:for="{{service}}" wx:key wx:for-index="idx_c" wx:for-item="item_c" id="main-{{idx_c}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='flex align-center padding-lr-sm font-black-default' style="color:reb(34,34,34),font-size:24rpx;">
+          <image class="round margin-right-xs " src="{{item_c.icon}}" style="width:40rpx;height:40rpx;"></image> {{item_c.title}} </view>
+      </view>
+      <view class="cu-list menu menu-avatar bg-white">
+        <navigator url="./ticket/ticket?id={{item.id}}" class="cu-item" wx:for='{{item_c.service}}' wx:key wx:for-index="idx" wx:for-item="item">
+          <view class="cu-avatar round lg">
+            <image src="{{item.list_image}}" class="round"></image>
+          </view>
+          <view class='content' style="width:70%">
+            <view class='text-grey font-black-default'>{{item.title}}</view>
+            <view class='text-red text-sm flex justify-between' style="width:100%;">
+              <view class="text-red">
+                {{item.type==2?"预约单":"￥"+item.price}}
+              </view>
+              <view class="text_num font-gray-default">
+                销量：{{item.sales_volume?item.sales_volume:0}}
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+
+
+<!-- tab -->
+<!-- <view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{service}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{service[index].title}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(150vh - 375rpx)" scroll-into-view="main-id-{{TabCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{service}}" wx:for-index="idx_c" wx:for-item="item_c" id="main-id-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='icon-title text-green'></text>{{service[idx_c].title}}</view>
+      </view>
+      <view class="cu-list menu menu-avatar">
+        <view class="cu-item" wx:for='{{item_c.service}}' wx:for-index="idx" wx:for-item="item">
+          <view class="cu-avatar round lg">
+            <image src="{{item.list_image}}"></image>
+          </view>
+          <view class='content'>
+            <view class='text-grey'>{{item.title}}</view>
+            <view class='text-gray text-sm'>
+              <text class='icon-infofill text-red'></text> 消息未送达</view>
+<!-- <text class='text-red'></text>{{item.type==1 ? '￥150' : '预约单'}} </view>
+          </view>
+          <view class='action'> -->
+<!-- <view class='text-grey text-xs'>22:20</view> -->
+<!-- <view class='cu-tags text-red'>销量：180</view> -->
+<!-- <view class="cu-tag round bg-grey sm">5</view> -->
+
+<!-- </view>
+        </view>
+        
+      </view>
+    </view>
+  </scroll-view>
+</view> -->

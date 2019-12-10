@@ -1,0 +1,78 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>门店详情</view>
+  </view>
+</view>
+<!-- 门店头部 -->
+<view>
+  <!-- <view class='head_img' wx:for='{{url}}'>
+    <image src='{{item.img}}'></image>
+  </view> -->
+  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{url}}" wx:key>
+      <image src="{{item.img}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 魔界logo部分 -->
+  <view class='detail_all'>
+    <view class='detail_img'>
+      <image src='../../../images/details_logo.png'></image>
+    </view>
+    <view class='detail_top'>
+      <view class='text_top'>
+        <text class='txt1'>{{detail.title}}</text>
+      </view>
+      <view class='txt3'>地址：{{detail.address}}</view>
+    </view>
+
+  </view>
+
+  <!-- 联系部分 -->
+  <view class='contact'>
+    <view class='contact_left' bindtap="showModal" data-target="Modal">
+      <view class='img_left'>
+        <image src='../../../images/phone.png'></image>
+      </view>
+      <text>联系我们</text>
+    </view>
+    <!-- 弹框 -->
+    <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+      <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">点击拨打</view>
+          <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding-left-sm  padding-tb-sm" wx:for='{{detail.contact}}' wx:key>
+          <view class="htline" data-mobile="{{item.mobile}}" bindtap="makePhone">热线{{index+1}}：{{item.mobile}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='contact_right' bindtap="openLocation">
+      <view class='img_left'>
+        <image src='../../../images/sky.png'></image>
+      </view>
+      <text>前往门店</text>
+    </view>
+  </view>
+  <!-- <view class='line'></view> -->
+
+  <!-- 服务详情内容部分 -->
+  <view class='article'>
+    <!-- 服务详情部分 -->
+    <view class='severce'>
+      <text>门店详情</text>
+    </view>
+    <import src="../../../wxParse/wxParse.wxml" />
+    <view class="wxParse">
+      <scroll-view scroll-y='true'>
+        <template is="wxParse" data="{{wxParseData:desc.nodes}}" />
+      </scroll-view>
+    </view>
+  </view>
+</view>

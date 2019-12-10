@@ -1,0 +1,124 @@
+<!-- 头部配置 -->
+<!-- <view class="cu-custom" style="height:{{CustomBar}}px;"> -->
+<!-- <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;"> -->
+<!-- <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-back'></text>
+      <text class='icon-homefill'></text>
+    </navigator> -->
+<!-- <view class='content' style='top:{{StatusBar}}px;'>我的</view> -->
+<!-- </view> -->
+<!-- </view> -->
+
+<view class="UCenter-bg">
+  <view class="bg_img">
+    <image src="{{userInfo.headImg ? userInfo.headImg : '/images/us_portrait.png'}}" style="border-radius:50%" class="png" mode="widthFix"></image>
+    <view class="cu-chat flex">
+      <view class="text-xl">{{userInfo.username ? userInfo.username : '用户登录'}}</view>
+      <view class="text-xl margin-top-sm">{{userInfo.mobile ? userInfo.mobile : ''}}</view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="container">
+  <!-- 记录 -->
+  <view class="book">
+    <view class="book_first" bindtap="calendarCheck">
+      <view class="book_num">{{dayNum?dayNum:0}}天</view>
+      <view class="book_name font-gray-default">签到</view>
+    </view>
+    <view class="book_first">
+      <view class="book_num">{{userInfo.orderScore?userInfo.orderScore:0}}颗</view>
+      <view class="book_name font-gray-default">魔豆</view>
+    </view>
+    <view class="book_first">
+      <view class="book_num">0枚</view>
+      <view class="book_name font-gray-default ">猎魔宣章</view>
+    </view>
+  </view>
+  <!-- =============================== -->
+  <!-- 订单 -->
+  <view class="order">
+    <view class="order_us">我的订单</view>
+    <view class="order_every font-gray-default" bindtap="toFullOrder">全部订单</view>
+  </view>
+  <!-- 订单内容 -->
+  <view class="order_content font-gray-default">
+    <view class="order_content_first" data-id="num" bindtap="wait_order">
+      <view class="order_content_image">
+        <image src="../../images/payment.png"></image>
+      </view>
+      <view class="order_content_text">待支付</view>
+    </view>
+    <view class="order_content_first" data-id="num" bindtap="wait_user">
+      <view class="order_content_image">
+        <image src="../../images/used.png"></image>
+      </view>
+      <view class="order_content_text">待使用</view>
+    </view>
+    <view class="order_content_first" data-id="num" bindtap="success_order">
+      <view class="order_content_image">
+        <image src="../../images/complete.png"></image>
+      </view>
+      <view class="order_content_text">已完成</view>
+    </view>
+    <view class="order_content_first" data-id="num" bindtap="cencel_order">
+      <view class="order_content_image">
+        <image src="../../images/revoke.png"></image>
+      </view>
+      <view class="order_content_text">退款售后</view>
+    </view>
+  </view>
+  <!-- 分类 -->
+  <view class="ification font-gray-default">
+    <view class="ification_first" bindtap="add_car">
+      <view class="ification_image">
+        <image src="../../images/automobile.png"></image>
+      </view>
+      <view class="ification_name">我的汽车</view>
+    </view>
+    <view class="ification_first" bindtap="ification_next">
+      <view class="ification_image">
+        <image src="../../images/ticket.png"></image>
+      </view>
+      <view class="ification_name">我的卡券</view>
+    </view>
+    <view class="ification_first" bindtap="my_appointment">
+      <view class="ification_image">
+        <image src="../../images/appointment.png"></image>
+      </view>
+      <view class="ification_name">我的预约</view>
+    </view>
+    <view class="ification_first">
+      <view class="ification_image">
+        <image src="../../images/knight.png"></image>
+      </view>
+      <view class="ification_name">买买车</view>
+    </view>
+    <!-- <view class="ification_first">
+      <view class="ification_image">
+        <image src="../../images/company.png"></image>
+      </view>
+      <view class="ification_name">随行</view>
+    </view>
+    <view class="ification_first">
+      <view class="ification_image">
+        <image src="../../images/surge.png"></image>
+      </view>
+      <view class="ification_name">锋潮</view>
+    </view> -->
+    <!-- <view class="ification_first">
+      <view class="ification_image">
+        <image src="../../images/cloud.png"></image>
+      </view>
+      <view class="ification_name">筋斗云</view>
+    </view> -->
+    <view class="ification_first">
+      <view class="ification_names order_every">更多敬请期待...</view>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class='ll'></scroll-view>
+  <!-- ========================= -->
+</view>

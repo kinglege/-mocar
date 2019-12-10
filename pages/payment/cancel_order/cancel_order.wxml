@@ -1,0 +1,148 @@
+<!-- <view class="header UCenter-bg bg-main-color-gradual">
+<navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+  <view class="bg_header flex">
+    <view class="bg_img">
+      <image src="../../../img/time_3.png"></image>
+    </view>
+    <view class="pay_txt">
+      <view class="pay">订单已取消</view>
+      
+    </view>
+  </view>
+</view> -->
+<view class='cu-custom'>
+  <view class="cu-bar fixed" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px; color:white">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <!-- <view class='content' style='top:{{StatusBar}}px;'></view> -->
+  </view>
+</view>
+ <view class="bg_header flex bg-main-color-gradual">
+    <view class="bg_img">
+      <image src="../../../img/time_4.png"></image>
+    </view>
+    <view class="pay_txt">
+      <view class="pay">订单已取消</view>
+    </view>
+  </view>
+
+
+
+<!-- 下单人员信息 -->
+<view class="order_info padding-lr-sm flex">
+  <view class="flex">
+    <view class="order_info_img">
+      <image src="../../../img/time_5.png"></image>
+    </view>
+    <view class="order_info_name">
+      <view class="order_right flex">
+        <view class="order_car">{{orderDetail.user_name}}</view>
+        <view class="order_tel font-gray-default">{{orderDetail.user_mobile}}</view>
+      </view>
+      <view class="order_info_car">
+        <view class="order_car">我的汽车：</view>
+        <view class="order_type">{{orderDetail.car_full_name}}</view>
+
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+<!-- 服务类目 -->
+<view class="service_category flex">
+  <view class="category_tit">服务类目</view>
+  <view class="category_time font-gray-default">{{orderDetail.created_at}}</view>
+</view>
+<view class="category_product flex" bindtap="toServe">
+  <view class="product_left flex">
+    <view class="product_img">
+      <image src="{{orderDetail.serve_image}}"></image>
+    </view>
+    <view>
+    <view class="product_name">{{orderDetail.serve_title}}</view>
+    <view class="product_tel font-gray-default">订单编号：{{orderDetail.order_no}}</view>
+    </view>
+
+  </view>
+  <view class="product_right">
+    <view>预约单</view>
+  </view>
+</view>
+
+<!-- 线下门店 -->
+<view class="store_tit">线下门店</view>
+<view class="store_all flex" bindtap="toStoreDetail">
+  <view class="store_left flex">
+    <view class="store_left_img">
+      <image src="../../../images/details_logo.png"></image>
+    </view>
+    <view class="store_left_introduce">
+      <view class="store_left_top flex">
+        <view class="store_txt1">{{orderDetail.shop_title}}</view>
+       
+      </view>
+      <view class="store_left_bottom font-gray-default">地址：{{orderDetail.shop_address}}</view>
+    </view>
+  </view>
+  <view class="store_right">
+    <image src="../../../images/next.png"></image>
+  </view>
+</view>
+<!-- 联系门店 -->
+<view class='contact'>
+    <view class='contact_left' bindtap="showModal" data-target="Modal">
+      <view class='img_left'>
+        <image src='../../../images/phone.png'></image>
+      </view>
+      <text>联系我们</text>
+    </view>
+    <!-- 弹框 -->
+    <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+      <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">点击拨打</view>
+          <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding-left-sm  padding-tb-sm" wx:for='{{orderDetail.shop.contact}}' wx:key>
+          <view class="htline" data-mobile="{{item.mobile}}" bindtap="makePhone">热线{{index+1}}：{{item.mobile}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='contact_left' bindtap="openLocation">
+      <view class='img_left'>
+        <image src='../../../images/sky.png'></image>
+      </view>
+      <text>前往门店</text>
+    </view>
+  </view>
+<!-- 支付 -->
+<!-- <view class="payment">
+  <view class="payment_one">
+    <view class="x1">支付方式</view>
+    <view class="x2">微信支付</view>
+  </view>
+  <view class="payment_two">
+    <view class="x1">优惠券</view>
+    <view class="x2 flex">
+      <view class="x2_txt">使用满减券:</view>
+      <view class="x2_img">
+        -50
+      </view>
+    </view>
+  </view>
+  <view class="payment_three">
+    <view class="x1">会员优惠</view>
+    <view class="x2">暂无</view>
+  </view>
+</view> -->
+
+<!-- 底部 -->
+<view class="settle_accounts font-gray-default">
+    <view class="accounts_right" bindtap="deleteOrder">删除订单</view>
+</view>

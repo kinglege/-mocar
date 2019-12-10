@@ -1,0 +1,6 @@
+/* pages/403/index.wxss */
+.seal{
+  margin: 500rpx auto;
+  text-align: center;
+  font-size: 40rpx;
+}

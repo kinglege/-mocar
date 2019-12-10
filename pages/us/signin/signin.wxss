@@ -1,0 +1,211 @@
+/* pages/Calendar/Calendar.wxss */
+/*头部*/
+.UCenter-bg {
+  background-image: url(https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E8%83%8C%E6%99%AF%E7%AD%BE%E5%88%B0.png);
+  /* background-color: lime; */
+  background-size: cover;
+  height: 428rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  z-index: -10;
+}
+.bg_img{
+  width: 50%;
+  display: flex;
+  /* margin-left: 73rpx; */
+  justify-content: center;
+  align-items: center;
+}
+.text-txt{
+  margin-right: 100rpx;
+}
+.text-num{
+  font-size: 60rpx;
+  padding-right: 100rpx;
+  padding-left: 10rpx;
+}
+.UCenter-bg text {
+  opacity: 0.8;
+}
+
+.UCenter-bg image {
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.UCenter-bg .gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
+}
+/* 打卡日历 */
+.all{
+  /* margin-top: 20rpx; */
+  border-radius: 25rpx;
+  margin-top: -80rpx;
+}
+
+.all .bar{
+  display: flex;
+  flex-direction: row;
+  margin: 0rpx 20rpx 30rpx 20rpx;
+  padding: 10rpx 10rpx 0rpx 10rpx;
+  padding-top: 40rpx;
+}
+
+.all .bar image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.all .line{
+  margin-bottom: 40rpx;
+  margin-left: 71rpx;
+  width: 548rpx;
+  height: 2rpx;
+  background-color: rgb(238,238,238);
+}
+.all .week{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.all .days{
+  padding: 10rpx;
+  border-radius: 10px;
+
+}
+
+.all .columns{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+.all .columns .rows{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.all .columns .rows .cell{
+  width: 84rpx;
+  height: 88rpx;
+  margin: 3rpx;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cell{
+  position: relative;
+}
+.cell image{
+  position: absolute;
+  width: 70rpx;
+  height: 70rpx;
+  left: 5rpx;
+  /* opacity: 0.5; */
+  z-index: 10,
+}
+.cell_on_text{
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.count .daynumber{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.count .daynumber .day{
+  margin-top: 50rpx;
+}
+
+.count{
+  margin: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  text-align: center;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #acd;
+  align-items: center;
+}
+
+.count .number{
+  color: red;
+  font-size: 60rpx;
+  background-color: #fff;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20rpx;
+}
+
+.count text{
+  margin: 10rpx;
+}
+/* 模态框 */
+.content{
+  width: 110rpx;
+  height: 110rpx;
+margin-left: 250rpx;
+margin: 70rpx auto;
+}
+.content image{
+  width: 110rpx;
+  height: 110rpx;
+
+}
+.bottomImg{
+  width: 540rpx;
+  height: 170rpx;
+  background: url(https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E9%82%80%E8%AF%B7%E5%A5%BD%E5%8F%8B.png);
+  background-size: cover;
+  margin-top: 53rpx;
+  margin-left: 35rpx;
+}
+.bottomImg button::before{
+  border: none;
+  outline: none;
+}
+.bg-color{
+   background: linear-gradient(to bottom, #fe5343, #f94842);
+  color: #fff;
+}
+.toModal{
+  width: 64rpx;
+  height: 64rpx;
+  position: absolute;
+  right: 0;
+  top: 0rpx;
+  /* transform: translate(-50%,-50%); */
+}
+.toModal image{
+  width: 64rpx;
+  height: 64rpx;
+
+}

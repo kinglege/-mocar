@@ -1,0 +1,211 @@
+
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>我的预约</view>
+  </view>
+</view>
+
+
+<!-- 卡券切换 -->
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-red cur':''}}" wx:for="{{list}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{list[index].tit}}
+    </view>
+  </view>
+</scroll-view>
+<view wx:if="{{allBookings.length}}">
+
+<!-- 已预约 -->
+<view class="one" wx:if='{{TabCur==0}}' wx:for="{{allBookings}}" wx:key>
+  <view class="tobepaid flex">
+    <view class="paid_address">
+      <view class="address_img">
+        <image src="../../../images/tobepaid_logo.png"></image>
+      </view>
+      <view class="address_name">{{item.shop_title}}</view>
+    </view>
+    <view class="address_time">{{item.created_at}}</view>
+  </view>
+  <view class="paid_pro" bindtap="paid_detail" data-id="{{item.id}}">
+    <view class="paid_pro_img">
+      <image src="{{item.serve_image}}"></image>
+    </view>
+    <view class="paid_pro_name">
+      <view class="name_n">{{item.serve_title}}</view>
+      <view class="name_b">订单编号：{{item.order_no}}</view>
+    </view>
+    <view class="paid_pro_state">
+      <view class="name_w">已预约</view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class='contact'>
+    <view class='contact_left'></view>
+    <view class='contact_left' data-lat='{{item.lat}}' data-lng='{{item.lng}}' bindtap="openLocation">
+      <view class='img_left'>
+        <image src='../../../images/sky.png'></image>
+      </view>
+      <text>前往门店</text>
+    </view>
+  </view>
+</view>
+
+<!-- 服务中 -->
+<view class="one" wx:if='{{TabCur==1}}' wx:for="{{allBookings}}" wx:key>
+  <view class="tobepaid flex">
+    <view class="paid_address">
+      <view class="address_img">
+        <image src="../../../images/tobepaid_logo.png"></image>
+      </view>
+      <view class="address_name">{{item.shop_title}}</view>
+    </view>
+    <view class="address_time">{{item.created_at}}</view>
+  </view>
+  <view class="paid_pro" bindtap="toService" data-id="{{item.id}}">
+    <view class="paid_pro_img">
+      <image src="{{item.serve_image}}"></image>
+    </view>
+    <view class="paid_pro_name">
+      <view class="name_n">{{item.serve_title}}</view>
+      <view class="name_b">订单编号：{{item.order_no}}</view>
+    </view>
+    <view class="paid_pro_state">
+      <view class="name_x">已预约</view>
+      <view class="aa flex">
+        <view class="name_h">费用：￥</view>
+        <view class="name_s">{{item.realTotalMoney}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class='contact'>
+    <view class='contact_left'></view>
+    <view class='contact_left' data-lat='{{item.lat}}' data-lng='{{item.lng}}' bindtap="openLocation">
+      <view class='img_left'>
+        <image src='../../../images/sky.png'></image>
+      </view>
+      <text>前往门店</text>
+    </view>
+  </view>
+</view>
+<!-- 待支付 -->
+<view class="one" wx:if='{{TabCur==2}}' wx:for="{{allBookings}}" wx:key>
+  <view class="tobepaid flex">
+    <view class="paid_address">
+      <view class="address_img">
+        <image src="../../../images/tobepaid_logo.png"></image>
+      </view>
+      <view class="address_name">{{item.shop_title}}</view>
+    </view>
+    <view class="address_time">{{item.created_at}}</view>
+  </view>
+  <view class="paid_pro" bindtap="toPaid" data-id="{{item.id}}">
+    <view class="paid_pro_img">
+      <image src="{{item.serve_image}}"></image>
+    </view>
+    <view class="paid_pro_name">
+      <view class="name_n">{{item.serve_title}}</view>
+      <view class="name_b">订单编号：{{item.order_no}}</view>
+    </view>
+    <view class="paid_pro_state">
+      <view class="name_x">未支付</view>
+      <view class="aa flex">
+        <view class="name_h">合计：￥</view>
+        <view class="name_s">{{item.realTotalMoney}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class='contact_left'></view>
+    <!-- <view class="footer_right flex" bindtap="immediate_payment">
+      <view class="footer_payment bg-main-color-gradual" data-item="{{item}}" bindtap="repayment">立即支付</view>
+    </view> -->
+    <view class="footer_right flex">
+      <view class="footer_payment bg-main-color-gradual" bindtap="toPaid" data-id="{{item.id}}">进入支付</view>
+    </view>
+  </view>
+</view>
+<!-- 已完成 -->
+<view class="one" wx:if='{{TabCur==3}}' wx:for="{{allBookings}}" wx:key>
+  <view class="all">
+    <view class="tobepaid flex">
+      <view class="paid_address">
+        <view class="address_img">
+          <image src="../../../images/tobepaid_logo.png"></image>
+        </view>
+        <view class="address_name">{{item.shop_title}}</view>
+      </view>
+      <view class="address_time font-gray-default">{{item.created_at}}</view>
+    </view>
+    <view class="paid_pro" bindtap="toSuccess" data-id="{{item.id}}">
+      <view class="paid_pro_img">
+        <image src="{{item.serve_image}}"></image>
+      </view>
+      <view class="paid_pro_name">
+        <view class="name_n">{{item.serve_title}}</view>
+        <view class="name_b font-gray-default">订单编号：{{item.order_no}}</view>
+      </view>
+      <view class="paid_pro_state">
+        <view class="name_x name_xx">已完成</view>
+        <view class="ab flex">
+          <view class="name_h">已付款：￥</view>
+          <view class="name_s">{{item.realPayMoney}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部 -->
+    <view class='contact'>
+      <view class='contact_left'></view>
+      <view class='contact_left' data-lat='{{item.lat}}' data-lng='{{item.lng}}' bindtap="openLocation">
+        <view class='img_left'>
+          <image src='../../../images/sky.png'></image>
+        </view>
+        <text>前往门店</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 撤销单 -->
+<view class="one" wx:if='{{TabCur==4}}' wx:for="{{allBookings}}" wx:key>
+  <view class="tobepaid flex">
+    <view class="paid_address">
+      <view class="address_img">
+        <image src="../../../images/tobepaid_logo.png"></image>
+      </view>
+      <view class="address_name">{{item.shop_title}}</view>
+    </view>
+    <view class="address_time">{{item.created_at}}</view>
+  </view>
+  <view class="paid_pro" bindtap="toCencel" data-id="{{item.id}}">
+    <view class="paid_pro_img">
+      <image src="{{item.serve_image}}"></image>
+    </view>
+    <view class="paid_pro_name">
+      <view class="name_n">{{item.serve_title}}</view>
+      <view class="name_b">订单编号：{{item.order_no}}</view>
+    </view>
+    <view class="paid_pro_state">
+      <view class="name_w">已取消</view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class='contact'>
+    <view class='contact_left'></view>
+    <view class='contact_left' data-lat='{{item.lat}}' data-lng='{{item.lng}}' bindtap="openLocation">
+      <view class='img_left'>
+        <image src='../../../images/sky.png'></image>
+      </view>
+      <text>前往门店</text>
+    </view>
+  </view>
+</view>
+</view>
+<view wx:else class="text-center" style="position:fixed;top:50vh;left:0;height:100rpx;width:100%">
+  <image src="../../../images/add_car.png" style="width:100rpx;height:100rpx;"></image>
+  <view class="text-center" class="my_car_text">当前暂无订单</view>
+</view>

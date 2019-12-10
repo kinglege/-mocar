@@ -1,0 +1,13 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>选择配置</view>
+  </view>
+</view>
+
+
+<view data-info="{{item}}" bindtap="toInformation" class="padding-lr-sm margin-tb-sm" wx:for="{{carrecord}}" wx:key>
+  <view style="height:90rpx;line-height:90rpx;border-bottom:2rpx solid #bfbfbf">{{item.name}}</view>
+</view>

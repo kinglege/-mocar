@@ -1,0 +1,21 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>预约成功</view>
+  </view>
+</view>
+
+<view class="success_book margin-lr-sm">
+  <view class="book_one">
+    <view class="book_img">
+      <image src="../../../img/payment_2.png"></image>
+    </view>
+    <view class="book_tit">恭喜你，预约成功！</view>
+  </view>
+  <view class="book_button">
+    <view class="book_watch bg-main-color-gradual">查看预约</view>
+    <view class="book_back">返回</view>
+  </view>
+</view>

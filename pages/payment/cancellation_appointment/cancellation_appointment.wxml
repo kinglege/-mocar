@@ -1,0 +1,106 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px; color:white">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <!-- <view class='content' style='top:{{StatusBar}}px;'></view> -->
+  </view>
+</view>
+ <view class="bg_header flex bg-main-color-gradual">
+    <view class="bg_img">
+      <image src="../../../img/time_3.png"></image>
+    </view>
+    <view class="pay_txt">
+      <view class="pay">预约取消</view>
+    </view>
+  </view>
+
+
+<!-- 下单人员信息 -->
+<view class="order_info padding-lr-sm flex">
+  <view class="flex">
+    <view class="order_info_img">
+      <image src="../../../img/time_5.png"></image>
+    </view>
+    <view class="order_info_name">
+      <view class="order_right flex">
+        <view class="order_name">李某某</view>
+        <view class="order_tel">6563253531351</view>
+      </view>
+      <view class="order_info_car flex">
+        <view class="order_car">我的汽车：</view>
+        <view class="order_type">大众cc2016款</view>
+
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+<!-- 服务类目 -->
+<view class="service_category flex">
+  <view class="category_tit">服务类目</view>
+  <view class="category_time">2019/9/1</view>
+</view>
+<view class="category_product flex">
+  <view class="product_left flex">
+    <view class="product_img">
+      <image src="../../../images/home_tyre.png"></image>
+    </view>
+    <view>
+    <view class="product_name">米其林轮胎更换</view>
+    <view class="product_tel">订单编号：321423142134123</view>
+    </view>
+
+  </view>
+  <view class="product_right">
+    <view>预约单</view>
+  </view>
+</view>
+<!-- 温馨提示 -->
+<view class="tips flex">
+  <view class="tips_img">
+    <image src="../../../images/tips.png"></image>
+  </view>
+  <view class="tips_txt1">温馨提示：</view>
+  <view class="tips_txt2">保养价格及保养服务以实际为准！</view>
+</view>
+<!-- 线下门店 -->
+<view class="store_tit">线下门店</view>
+<view class="store_all flex">
+  <view class="store_left flex">
+    <view class="store_left_img">
+      <image src="../../../images/details_logo.png"></image>
+    </view>
+    <view class="store_left_introduce">
+      <view class="store_left_top flex">
+        <view class="store_txt1">魔界滨湖一号店</view>
+        <view class="store_txt2">距离五千米</view>
+      </view>
+      <view class="store_left_bottom">地址：合肥市包河区紫云路666号</view>
+    </view>
+  </view>
+  <view class="store_right">
+    <image src="../../../images/next.png"></image>
+  </view>
+</view>
+<!-- 联系门店 -->
+<view class='contact'>
+    <view class='contact_left'>
+      <view class='img_left'>
+        <image src='../../../images/phone.png'></image>
+      </view>
+      <text>联系我们</text>
+    </view>
+    <view class='contact_left'>
+      <view class='img_left'>
+        <image src='../../../images/sky.png'></image>
+      </view>
+      <text>前往门店</text>
+    </view>
+  </view>
+
+<!-- 底部 -->
+<view class="settle_accounts">
+  <view class="accounts_right">取消预约</view>
+</view>

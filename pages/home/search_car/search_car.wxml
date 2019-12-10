@@ -1,0 +1,56 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>搜索</view>
+  </view>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="page_inp">
+    <view class="text_inp">
+      <input type="text" focus='true' confirm-type="search" bindinput='input' bindconfirm='search' value="" name="info" class="text-input" placeholder="搜索服务  如:洗车、贴膜等"></input>
+    </view>
+    <!-- <view class="search" value="" bindtap="getSearch">搜索</view> -->
+    <button class="searchInput font-gray-default" value="" bindtap="search">搜索</button>
+  </view>
+</form>
+
+
+<view class="history_search">
+  <view class="history_tit font-gray-default">历史搜索</view>
+  <view class="clear_history font-gray-default" bindtap="clearHistory">清除历史</view>
+</view>
+<view class="record">
+  <view class="search_type margin-left-xs padding-lr-xs" wx:for='{{list}}' wx:key data-keyword="{{item.title}}" bindtap="searchlog">{{item.title}}</view>
+</view>
+
+<!--展示列表  -->
+<!-- <view class="category_product margin-tb-sm">
+  <view class="product_left flex margin-tb-sm" wx:for='{{service}}'>
+    <view class="product_img">
+      <image src="{{item.list_image}}"></image>
+    </view>
+    <view>
+      <view class="product_name">{{item.title}}</view>
+    </view>
+  </view>
+</view> -->
+
+<!--  -->
+<navigator url="../ticket/ticket?id={{item.id}}&type={{item.type}}" class="flex padding-sm" wx:for='{{service}}' wx:key wx:for-index="idx" wx:for-item="item">
+  <view class="cu-avatar round lg margin-right">
+    <image src="{{item.list_image}}" class="round"></image>
+  </view>
+  <view class='content flex justify-between align-end' style="width:100%">
+    <view class='text-grey font-gray-default'>
+      <view>{{item.title}}</view>
+      <view class="text-red margin-top-sm">
+        {{item.type==2?"预约单":"￥"+item.price}}
+      </view>
+    </view>
+    <view class='text_num font-gray-default'>
+      销量：{{item.sales_volume?item.sales_volume:0}}
+    </view>
+  </view>
+</navigator>

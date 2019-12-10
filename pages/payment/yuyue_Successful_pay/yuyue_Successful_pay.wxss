@@ -1,0 +1,59 @@
+/* pages/payment/yuyue_Successful_booking/yuyue_Successful_booking.wxss */
+.success_book{
+  height: 740rpx;
+  background-color: #fff;
+  margin-top: 10rpx;
+  padding: 0 70rpx;
+}
+.book_one{
+  padding: 130rpx 0 89rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.book_img{
+  width: 178rpx;
+  height: 153rpx;
+  
+}
+.book_img image{
+  width: 178rpx;
+  height: 153rpx;
+}
+.book_button{
+  display:flex;
+  padding-top: 50rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+.book_tit{
+  color: rgb(191,191,191);
+  font-size: 24rpx;
+  padding-top: 50rpx;
+  
+}
+.book_money{
+  color: rgb(34,34,34);
+  font-size: 40rpx;
+  padding-top: 50rpx;
+}
+.book_watch{
+  width: 260rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+}
+.book_back{
+  font-size: 34rpx;
+  width: 260rpx;
+  border-radius: 10rpx;
+  height: 80rpx;
+  border: 2rpx solid rgb(229,229,229);
+  color: rgb(184,184,184);
+  line-height: 80rpx;
+  text-align: center;
+}

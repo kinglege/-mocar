@@ -1,0 +1,32 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>取消订单</view>
+  </view>
+</view>
+<!-- 取消原因 -->
+<view class="reason font-gray-default">选择取消的原因</view>
+<view class="reason-all">
+  <radio-group class="block" bindchange='cancelReason'>
+    <view class="flex justify-between padding-sm bg-white solid-top" wx:for='{{reason}}' wx:key>
+      <view class="title font-black-default font-sm">{{item.title}}</view>
+      <radio class='red' value='{{item.title}}' style='transform: scale(0.8)'></radio>
+    </view>
+  </radio-group>
+</view>
+
+<view class="tips flex margin-top-xs font-default">
+  <view class="tips_img">
+    <image src="../../../images/tips.png"></image>
+  </view>
+  <view class="tips_txt1 font-black-default text-gray">温馨提示：</view>
+  <view class="tips_txt2 text-gray">订单取消后无法恢复！</view>
+</view>
+
+<!-- 申请退款 -->
+<view class="apply justify-between font-xxl">
+  <view class="apply_no" bindtap='no_cancel_reservation'>暂不取消</view>
+  <view class="apply_plase bg-main-color-gradual" data-id="{{item.id}}" bindtap='cancel_reservation'>确认取消</view>
+</view>

@@ -1,0 +1,116 @@
+<!--pages/coupon/coupon.wxml优惠券-->
+
+<!-- <view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-back'></text>
+      <!-- <text class='icon-homefill'></text> -->
+<!-- </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>走吧Mocar</view>
+  </view>
+</view> -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>我的卡券</view>
+  </view>
+</view>
+<!-- 卡券切换 -->
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{list}}" bindtap="tabSelect" data-id="{{index}}" wx:key>
+      {{list[index].tit}}
+    </view>
+  </view>
+</scroll-view>
+
+<view wx:if='{{flag1}}' data-id="{{id}}" wx:for="{{coupon.valid}}" wx:key>
+  <view class="padding-lr-sm effective">
+    <view class="info_price" wx:if="{{item.type==1}}">
+      <view class="qq_3">{{item.discount*10}}</view>
+      <view class="qq4">折</view>
+    </view>
+    <view class="info_price" wx:if="{{item.type==2}}">
+      <view class="qq">￥</view>
+      <view class="qq2">{{item.reduce_money}}</view>
+    </view>
+    <view class="info_price" wx:if="{{item.type==3}}">
+      <view class="qq2">全免</view>
+    </view>
+    <view class="effective_info">
+      <view class="info_name">{{item.title}}</view>
+      <view class="info_type">{{item.remarks}}</view>
+      <view class="info_time">{{item.start_time}}至{{item.end_time}}</view>
+    </view>
+  </view>
+  <view class="limit">
+    <view class="limit_img">
+      <image src="../../images/tips.png"></image>
+    </view>
+    <view class="limit_txt">仅限于{{item.service_title}}服务</view>
+    <view class="limit_txt" wx:if='{{item.type==2}}'>满￥{{item.top_money}}可用</view>
+
+  </view>
+  <!-- <view class="padding-lr-sm effective">
+    <view class="info_price">
+      <view class="qq">￥</view>
+      <view class="qq2">10</view>
+    </view>
+    <view class="effective_info">
+      <view class="info_name">汽车折扣券</view>
+      <view class="info_type">仅限洗车,满20减10</view>
+      <view class="info_time">2018-9-09至2019-4-32</view>
+    </view>
+  </view> -->
+</view>
+
+<view wx:if='{{flag2}}'  wx:for="{{coupon.invalid}}" wx:key>
+  <view class="padding-lr-sm effect">
+    <view class="info_price" wx:if="{{item.type==1}}">
+      <view class="qq_3">{{item.discount*10}}</view>
+      <view class="qq4">折</view>
+    </view>
+    <view class="info_price" wx:if="{{item.type==2}}">
+      <view class="qq">￥</view>
+      <view class="qq2">{{item.reduce_money}}</view>
+    </view>
+    <view class="info_price" wx:if="{{item.type==3}}">
+      <view class="qq2">全免</view>
+    </view>
+    <view class="effective_info">
+      <view class="info_name">{{item.title}}</view>
+      <view class="info_type">{{item.remarks}}</view>
+      <view class="info_time">{{item.start_time}}至{{item.end_time}}</view>
+    </view>
+  </view>
+  <view class="limit">
+    <view class="limit_img">
+      <image src="../../images/tips.png"></image>
+    </view>
+    <view class="limit_txt">仅限于{{item.service_title}}服务</view>
+    <view class="limit_txt" wx:if='{{item.type==2}}'>满￥{{item.top_money}}可用</view>
+
+  </view>
+</view>
+<!-- <view class="padding-lr-sm " wx:if='{{flag2}}' wx:for="{{coupon.invalid}}">
+  <view class="padding-lr-sm effect">
+    <view class="info_price" wx:if="{{item.type==1}}">
+      <view class="qq_3">{{item.discount*10}}</view>
+      <view class="qq4">折</view>
+    </view>
+    <view class="info_price" wx:if="{{item.type==2}}">
+      <view class="qq">￥</view>
+      <view class="qq2">{{item.count}}</view>
+    </view>
+    <view class="info_price" wx:if="{{item.type==3}}">
+      <view class="qq2">{{item.count}}</view>
+    </view>
+    <view class="effective_info">
+      <view class="info_name">{{item.title}}</view>
+      <view class="info_type">{{item.remarks}}</view>
+      <view class="info_time">{{item.start_time}}至{{item.end_time}}</view>
+    </view>
+  </view>
+</view> -->

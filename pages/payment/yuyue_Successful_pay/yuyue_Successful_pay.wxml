@@ -1,0 +1,22 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="3" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>支付成功</view>
+  </view>
+</view>
+
+<view class="success_book margin-lr-sm">
+  <view class="book_one">
+    <view class="book_img">
+      <image src="../../../img/payment_1.png"></image>
+    </view>
+    <view class="book_tit">恭喜你，订单支付成功！</view>
+    <!-- <view class="book_money">￥300</view> -->
+  </view>
+  <view class="book_button">
+    <navigator url="/pages/payment/waiting_service/waiting_service?order_id={{order_id}}" class="book_watch bg-main-color-gradual">查看订单</navigator>
+    <view class="book_back" bindtap="toBack">返回</view>
+  </view>
+</view>

@@ -1,0 +1,386 @@
+/* pages/home/ticket/service_order/service_order.wxss */
+
+page {
+  padding-bottom: 110rpx;
+}
+
+.order_info {
+  height: 160rpx;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_add{
+   display: inline-block;
+  vertical-align: top;
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+}
+.order_add::after{
+  border: none;
+}
+.order_info_img {
+  width: 63rpx;
+  height: 63rpx;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+
+.order_name, .order_car, .order_type {
+  font-size: 26rpx;
+  color: rgb(34, 34, 34);
+  font-weight: 700;
+}
+
+.order_car {
+  width: 140rpx;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.order_type {
+  display: inline-block;
+  width: 450rpx;
+  vertical-align: top;
+}
+
+.order_right {
+  margin-bottom: 12rpx;
+}
+
+.order_tel {
+  font-size: 26rpx;
+  margin-top: 6rpx;
+}
+
+.order_info_name {
+  padding-left: 20rpx;
+}
+
+.order_info_img image {
+  width: 63rpx;
+  height: 63rpx;
+}
+
+.order_icon {
+  width: 18rpx;
+  height: 23rpx;
+}
+
+.order_icon image {
+  width: 18rpx;
+  height: 23rpx;
+}
+
+/* 服务类目 */
+
+.service_category {
+  padding: 0 20rpx;
+  margin-top: 15rpx;
+  background-color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.category_tit {
+  color: rgb(34, 34, 34);
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.category_product {
+  margin-top: 2rpx;
+  padding: 0 20rpx;
+  background-color: #fff;
+  height: 180rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product_img {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.product_img image {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.product_left {
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.product_name {
+  padding-left: 30rpx;
+  font-size: 26rpx;
+  color: rgb(24, 24, 24);
+  font-weight: 700;
+}
+
+.product_right {
+  color: red;
+  letter-spacing: 2rpx;
+}
+
+/* 线下门店 */
+
+.store_tit {
+  padding: 0 20rpx;
+  margin-top: 15rpx;
+  background-color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: rgb(34, 34, 34);
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.store_all {
+  height: 130rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store_left_introduce {
+  margin-left: 25rpx;
+}
+
+.store_left_top {
+  padding-bottom: 15rpx;
+}
+
+.store_left_img {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.store_txt1 {
+  font-size: 26rpx;
+  color: rgb(24, 24, 24);
+  font-weight: 700;
+}
+
+.store_left_bottom {
+  font-size: 22rpx;
+}
+
+.store_txt2 {
+  font-size: 22rpx;
+  color: rgb(191, 191, 191);
+  padding: 5rpx 0 0 15rpx;
+}
+
+.store_left_img image {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.store_right {
+  width: 15rpx;
+  height: 23rpx;
+}
+
+.store_right image {
+  width: 15rpx;
+  height: 23rpx;
+}
+
+/* 支付 */
+
+.payment {
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+
+.x2_img {
+  width: 15rpx;
+  height: 23rpx;
+}
+
+.x2_img image {
+  width: 15rpx;
+  height: 23rpx;
+}
+
+.payment_one {
+  padding-right: 30rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment_two {
+  height: 85rpx;
+  line-height: 85rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.x2_txt {
+  padding-right: 20rpx;
+}
+
+.payment_three {
+  padding-right: 40rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.x1 {
+  color: rgb(34, 34, 34);
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.x2 {
+  font-size: 22rpx;
+}
+
+/* 底部 */
+
+.settle_accounts {
+  border-top: 1rpx solid #ddd;
+  width: 100%;
+  display: flex;
+  padding: 0 20rpx;
+  z-index: 999;
+  justify-content: space-around;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+}
+
+.accounts_left {
+  font-size: 24rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.accounts_right {
+  width: 380rpx;
+  margin-top: 10rpx;
+  height: 80rpx;
+  background-color: rgb(233, 38, 64);
+  font-size: 36rpx;
+  line-height: 80rpx;
+  text-align: center;
+  transform: translateX(30rpx);
+  border-radius: 10rpx;
+  color: rgb(255, 255, 255);
+}
+
+.accounts_left_price {
+  font-size: 30rpx;
+  color: rgb(239, 52, 65);
+}
+
+/* =============== */
+
+.show-btn {
+  margin-top: 100rpx;
+  color: #2c2;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #fff;
+  margin: -180rpx 105rpx;
+  border-radius: 20rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  color: rgb(34, 34, 34);
+  font-size: 30rpx;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 20rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  /* border: 2rpx solid #ddd; */
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  /* padding: 0 20rpx; */
+  box-sizing: border-box;
+  color: red;
+}
+
+input-holder {
+  color: red;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #000;
+  font-weight: 700;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.btn-confirm {
+  width: 50%;
+  font-weight: 700;
+  font-size: 30rpx;
+  color: red;
+  text-align: center;
+}

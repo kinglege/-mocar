@@ -1,0 +1,38 @@
+<!--pages/information/information.wxml-->
+<!-- 全局头部配置 -->
+<!-- <view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-red" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action border-custom' delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <navigator open-type="navigateBack" class='cuIcon-back'></navigator>
+      <navigator open-type="switchTab" url='/pages/index/index' class='icon-homefill'></navigator>
+    </view>
+    <view class='content' style='top:{{StatusBar}}px;'>添加车辆</view>
+  </view>
+</view> -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color-gradual" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>添加车辆</view>
+  </view>
+</view>
+<!-- 步骤条 -->
+<view class='bg-white padding'>
+  <view class='cu-steps'>
+    <view class='cu-item {{index>num?"":"text-blue"}}' wx:for="{{numList}}" wx:key>
+      <text class='num {{index==2?"err":""}}' data-index='{{index + 1}}'></text> {{item.name}}
+    </view>
+  </view>
+</view>
+<!-- 成功显示 -->
+<view>
+  <view>
+    <image src=""></image>
+  </view>
+  <view>恭喜你，车辆绑定成功！</view>
+  <view>快去保养你的爱车吧！</view>
+</view>
+   <view class='action'>
+    <button class='cu-btn bg-main-color-gradual shadow' bindtap='next'>下一步</button>
+  </view>

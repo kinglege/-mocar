@@ -1,0 +1,52 @@
+<!-- 全局头部配置 -->
+<!-- <view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-red" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action border-custom' delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <navigator open-type="navigateBack" class='cuIcon-back'></navigator>
+      <navigator open-type="switchTab" url='/pages/index/index' class='icon-homefill'></navigator>
+    </view>
+    <view class='content' style='top:{{StatusBar}}px;'>我的汽车</view>
+  </view>
+</view> -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gray-default" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>我的汽车</view>
+  </view>
+</view>
+
+<view style="padding-bottom:120rpx;">
+  <view class="car_info_all" wx:for='{{car}}' wx:key>
+    <view class="car_info">
+      <view class="car_img">
+        <image src="{{item.brand_img}}"></image>
+      </view>
+      <view class="car_introduce">
+        <view class="introduce_top flex">
+          <view class=" top_txt1 ">{{item.brand_name}} {{item.series_name}}</view>
+          <view class="top_txt2 ">{{item.car_number}}</view>
+        </view>
+        <view class="introduce_bottom flex">
+          <view class="top_txt3 font-gray-default">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="state_car flex padding-right-sm" style="margin-top:1rpx;">
+      <view class="cu-tag line-grey font-gray-default" style="border-radius:10rpx;" bindtap="getDelete" data-id="{{item.id}}">删除车辆</view>
+      <view class="cu-tag line-red" style="border-radius:10rpx;" wx:if="{{item.default==1}}">默认车辆</view>
+      <view class="cu-tag line-red" bindtap="default_car" data-id="{{item.id}}" style="border-radius:10rpx;" wx:else>设为默认</view>
+
+    </view>
+  </view>
+</view>
+<view wx:if='{{!car.length}}' class="text-center" style="position:fixed;top:50vh;left:0;height:100rpx;width:100%">
+  <image src="../../images/add_car.png" style="width:100rpx;height:100rpx;"></image>
+  <view class="text-center" class="my_car_text">当前未添加车辆信息</view>
+</view>
+
+
+<view class="padding-lg" style="position:fixed;bottom:30rpx;left:0;width:100%">
+  <button bindtap="addCar" class='cu-btn  bg-main-color-gradual shadow lg block'>添加车辆</button>
+</view>

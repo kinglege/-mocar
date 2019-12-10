@@ -1,0 +1,109 @@
+<!--pages/Calendar/Calendar.wxml-->
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' style="color:#fff" open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;color:#fff'>签到中心</view>
+  </view>
+</view>
+<!-- 打卡日历页面 -->
+<view class="UCenter-bg">
+  <view class="bg_img">
+    <image src="../../../images/sign_magic_bean_samll.png" class="png" mode="widthFix"></image>
+    <view class="cu-chat flex">
+      <view class="text-num">{{userInfo.orderScore}}</view>
+    </view>
+  </view>
+  <view class="text-txt font-xl padding-sm margin-right-xl">累计获得魔豆</view>
+  <!-- <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image> -->
+</view>
+
+<!-- //打卡 -->
+<view class='padding-lr' style="">
+  <view class='all bg-white shadow shadow-lg'>
+    <view class="bar justify-center align-center">
+      <!-- 上一个月 -->
+      <view class="previous" bindtap="handleCalendar" data-handle="prev">
+        <image src='../../../images/left.png' style='width:28rpx;height:28rpx;'></image>
+      </view>
+      <!-- 显示年月 -->
+      <view class="date font-xxl margin-lr font-black-default" style='margin-bottom:8rpx;'>{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+      <!-- 下一个月 -->
+      <view class="next" bindtap="handleCalendar" data-handle="next">
+        <image src='../../../images/right.png' style='width:28rpx;height:28rpx;'></image>
+      </view>
+    </view>
+    <view class="line"></view>
+    <!-- 显示星期 -->
+    <view class="week padding-lr-xl font-black-default">
+      <view wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+    </view>
+    <view class='days'>
+      <!-- 列 -->
+      <view class="columns" wx:for="{{days.length/7}}" wx:for-index="i" wx:key="i">
+        <view wx:for="{{days}}" wx:for-index="j" wx:key="j">
+          <!-- 行 -->
+          <view class="rows" wx:if="{{j/7 == i}}">
+            <view class="rows" wx:for="{{7}}" wx:for-index="k" wx:key="k">
+              <!-- 每个月份的空的单元格 -->
+              <view class='cell' wx:if="{{days[j+k].date == null}}">
+                <text decode="{{true}}">&nbsp;&nbsp;</text>
+              </view>
+              <!-- 每个月份的有数字的单元格 -->
+              <view class='cell' wx:else>
+                <!-- 当前日期已签到 -->
+                <view wx:if="{{days[j+k].isSign == true}}" class='cell'>
+                  <image src='https://gzch.oss-cn-beijing.aliyuncs.com/office/image/sign_magic_bean.png'></image>
+                  <text class='cell_on_text font-default'>{{days[j+k].date}}</text>
+                </view>
+                <!-- 当前日期未签到 -->
+                <view wx:else>
+                  <text class="font-default font-bold">{{days[j+k].date}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="padding margin-top flex flex-direction" style="padding-top:0;">
+    <button class="cu-btn bg-main-color-gradual round lg" style="height:100rpx;" disabled='{{signinData.is_signin}}' type="" bindtap='signin'>{{signinData.is_signin ? '今日已签到' :'立即签到'}}</button>
+  </view>
+</view>
+
+
+<view class=" padding-sm">
+  <view class="font-black-default font-lg">签到规则：</view>
+  <view class="font-gray-default padding-top-sm font-sm">
+    <view class="padding-bottom-xs">每日签到可获得1魔豆奖励</view>
+    <view class="padding-bottom-xs">每签到7日，可获得额外10魔豆奖励</view>
+    <view class="padding-bottom-xs">每签到15日，可获得额外20魔豆奖励</view>
+    <view class="padding-bottom-xs">每签到1个月，可获得额外30魔豆奖励</view>
+  </view>
+
+</view>
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog  bg-white" style="height:680rpx;width:610rpx; position: relative;">
+    <view class="">
+      <view class="content">
+        <image src="../../../images/sign_magic_bean_model.png"></image>
+      </view>
+      <view class="font-xxl font-black-default">恭喜你，签到成功!</view>
+      <view class="font-lg font-gray-default" style="margin-top:20rpx;" wx:for='{{reward.rule}}' wx:key>获得
+        <text class="text-red">{{item.signin_rule_score}}</text>魔豆，已签到
+        <text class="text-red">{{item.signin_rule_day}}</text>日
+      </view>
+      <button class="bottomImg" open-type="share">
+
+      </button>
+    </view>
+    <view class="toModal" bindtap="hideModal">
+      <image src="../../../images/sign_delete.png"></image>
+    </view>
+    <!-- <view class="action cu-bar bg-white justify-end" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view> -->
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>我的汽车</view>
+  </view>
+</view>
+ 
+
+<!-- 汽车 -->
+<view class="car_info">
+  <view class="car_img">
+    <image src="../../images/nav_1.png"></image>
+  </view>
+  <view class="car_introduce">
+    <view class="introduce_top flex">
+      <view class=" top_txt1 ">大众cc2019尊贵版</view>
+      <view class="top_txt2 ">闽A999999</view>
+    </view>
+    <view class="introduce_bottom flex">
+      <view class="top_txt3 ">2018款2.0T</view>
+      <view class="top_txt4 ">自动挡尊贵版</view>
+    </view>
+  </view>
+</view>
+<view class="car_footer flex">
+  <view class="car_del ">删除车辆</view>
+  <view class="car_default ">默认车辆</view>
+</view>
+<!-- 汽车 -->
+<view class="car_info">
+  <view class="car_img">
+    <image src="../../images/nav_1.png"></image>
+  </view>
+  <view class="car_introduce">
+    <view class="introduce_top flex">
+      <view class=" top_txt1 ">大众cc2019尊贵版</view>
+      <view class="top_txt2 ">闽A999999</view>
+    </view>
+    <view class="introduce_bottom flex">
+      <view class="top_txt3 ">2018款2.0T</view>
+      <view class="top_txt4 ">自动挡尊贵版</view>
+    </view>
+  </view>
+</view>
+<view class="car_footer flex">
+  <view class="car_del ">删除车辆</view>
+  <view class="car_default ">默认车辆</view>
+</view>

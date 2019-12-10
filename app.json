@@ -1,0 +1,102 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/auth/auth",
+    "pages/us/us",
+    "pages/us/signin/signin",
+    "pages/index/activity/activity",
+    "pages/cancel/ApplyRefund/ApplyRefund",
+    "pages/home/home",
+    "pages/cancel/cancellationOrder/cancellationOrder",
+    "pages/payment/waiting_payment/waiting_payment",
+    "pages/tobepaid/tobepaid",
+    "pages/coupon/choice/choice",
+    "pages/coupon/coupon",
+    "pages/myCar_info/myCar_info",
+    "pages/myCar_info/myCar_check/myCar_check",
+    "pages/mycar/mycar",
+    "pages/payment/successful_appointment/successful_appointment",
+    "pages/payment/yuyue_Successful_pay/yuyue_Successful_pay",
+    "pages/payment/yuyue_Successful_booking/yuyue_Successful_booking",
+    "pages/payment/yuyue_waiting_payment/yuyue_waiting_payment",
+    "pages/payment/yuyue_my_appointment/yuyue_my_appointment",
+    "pages/home/search_car/search_car",
+    "pages/home/ticket/ticket",
+    "pages/payment/yuyue_failure_pay/yuyue_failure_pay",
+    "pages/home/ticket/service_order/service_order",
+    "pages/payment/yuyue_reservation_service/yuyue_reservation_service",
+    "pages/payment/yuyue_in_service/yuyue_in_service",
+    "pages/payment/yuyue_service_completion/yuyue_service_completion",
+    "pages/payment/service_completion/service_completion",
+    "pages/payment/refund_completed/refund_completed",
+    "pages/payment/cancellation_appointment/cancellation_appointment",
+    "pages/payment/cancel_order/cancel_order",
+    "pages/shop/details/details",
+    "pages/payment/waiting_service/waiting_service",
+    "pages/403/index",
+    "pages/information/all_car/all_car",
+    "pages/information/all_car/configuration/configuration",
+    "pages/information/information",
+    "pages/data/data",
+    "pages/upload/upload",
+    "pages/success/success",
+    "pages/webView/webView"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "魔界",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "subpackages": [
+    {
+      "root": "packageA/",
+      "name": "car",
+      "pages": [
+        "pages/car/car"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/information/information": {
+      "network": "all",
+      "packages": [
+        "car"
+      ]
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于爱傢提供更精确的服务"
+    }
+  },
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#646464",
+    "selectedColor": "#e54d42",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/index.png",
+        "selectedIconPath": "/images/index_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_active.png",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/us/us",
+        "iconPath": "/images/us.png",
+        "selectedIconPath": "/images/us_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap29.json"
+}

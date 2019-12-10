@@ -1,0 +1,147 @@
+/* pages/us/sign/sign.wxss */
+/**index.wxss**/
+/*头部*/
+.UCenter-bg {
+  background-image: url(https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E8%83%8C%E6%99%AF%E7%AD%BE%E5%88%B0.png);
+  /* background-color: lime; */
+  background-size: cover;
+  height: 428rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.bg_img{
+  display: flex;
+  margin-left: 73rpx;
+  justify-content: center;
+  align-items: center;
+}
+.text-txt{
+  margin-right: 100rpx;
+}
+.text-num{
+  font-size: 60rpx;
+  padding-right: 200rpx;
+  padding-left: 10rpx;
+}
+.UCenter-bg text {
+  opacity: 0.8;
+}
+
+.UCenter-bg image {
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.UCenter-bg .gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
+}
+/* 日历 */
+.t_red{
+  color: red;
+}
+.t_blue{
+  color: royalblue;
+}
+.calendar{
+
+  margin: 0 1vw;
+}
+.time{
+  padding: 16rpx 20rpx;
+  background-color: wheat;
+  display: flex;
+}
+.time view{
+  flex: 1;
+  font-size: 30rpx;
+
+}
+.time view text{
+  font-size: 38rpx;
+}
+.weekName{
+   background-color: gainsboro;
+  width: 100%;
+  display: flex;
+  padding: 16rpx 0;
+}
+.weekName view{
+  flex: 1;
+  text-align: center;
+}
+.sunday,.saturday{
+  color: red;
+}
+.week{
+  width: 100%;
+}
+.week view{
+  width: 14.2%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  margin: 20rpx 0;
+  text-align: center;
+}
+.week view text{
+  width: 100%;
+  height: 100%;
+
+  display: inline-block;
+}
+.calendarSign{
+  margin: 20rpx;
+}
+/* //模态框 */
+.content{
+  width: 110rpx;
+  height: 110rpx;
+margin-left: 250rpx;
+margin: 70rpx auto;
+}
+.content image{
+  width: 110rpx;
+  height: 110rpx;
+
+}
+.bottomImg{
+  width: 540rpx;
+  height: 170rpx;
+  z-index: 999;
+  background: url(https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E9%82%80%E8%AF%B7%E5%A5%BD%E5%8F%8B.png);
+  background-size: cover;
+  margin-top: 100rpx;
+  margin-left: 35rpx;
+}
+
+.bg-color{
+   background: linear-gradient(to bottom, #fe5343, #f94842);
+  color: #fff;
+}
+.toModal{
+  width: 64rpx;
+  height: 64rpx;
+  position: absolute;
+  right: 0;
+  top: 0rpx;
+  /* transform: translate(-50%,-50%); */
+}
+.toModal image{
+  width: 64rpx;
+  height: 64rpx;
+
+}

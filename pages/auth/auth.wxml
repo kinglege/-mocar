@@ -1,0 +1,23 @@
+
+<view class='UCenter-bg'>
+  <view class='box'>
+  <image src='../../images/logo@2x.png' mode='scaleToFill' class='gif-wave png'></image>
+</view>
+    <view class="vier-wel">欢迎来到</view>
+    <view class="vier1-wel">走吧小程序V1.0</view>
+</view>
+<view class='padding-xl'>
+  <button wx:if='{{!userInfoAuth}}' class='cu-btn  bg-main-color-gradual shadow lg block' open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">授权用户信息</button>
+  <!-- <block wx:else>
+    <button wx:if='{{!mobileAuth}}' class='cu-btn  bg-gradual-red shadow lg block' open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">微信手机号登录</button> -->
+  <block wx:else>
+    <button wx:if='{{!mobileAuth}}' class='cu-btn bg-main-color-gradual shadow lg block' open-type="getPhoneNumber"  bindgetphonenumber='getPhoneNum' open-type='getPhoneNumber'>微信手机号登录
+    </button>
+         <!-- <button class='cu-btn  bg-gradual-blue shadow lg block' open-type="getPhoneNumber" bindgetphonenumber="{{loadModal ? '' : 'getPhoneNumber'}}">一键登录</button> -->
+  </block>
+</view>
+<!-- <button bindtap='getOpenIdTap'>获取用户唯一标识openid</button>
+<text>openid:{{openid}}\n </text> -->
+<view class='procol'>
+  <view class='p_text'>安徽光之晨曦实业发展集团</view>
+</view>

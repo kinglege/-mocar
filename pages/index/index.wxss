@@ -1,0 +1,376 @@
+.screen-swiper {
+  min-height: 300rpx;
+}
+
+.banner-img{
+  width: 100%;
+  height: 110rpx;
+}
+.banner-img image{
+  width: 100%;
+  height: 110rpx;
+}
+/* 导航部分 */
+
+.grids {
+  letter-spacing: 2rpx;
+  /* margin-top: 20rpx； */
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid_item {
+  /* margin-bottom: 30rpx; */
+  width: 138rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: lime; */
+}
+
+.grid_item image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 5px;
+}
+
+.item_text {
+  color: #000;
+  font-size: 22rpx;
+}
+
+.index_car {
+  width: 100%;
+  height: 80rpx;
+  border-radius: 20rpx;
+  border: 1px solid rgb(210, 210, 210);
+}
+
+.index_car text {
+  color: #f74342;
+}
+
+.index_car {
+  height: 60rpx;
+  text-align: center;
+  padding-top: 10rpx;
+  letter-spacing: 2rpx;
+}
+
+/* 热点 */
+
+.hotspot {
+  padding: 0 0rpx 0 0;
+  letter-spacing: 2rpx;
+  width: 100%;
+  height: 100rpx;
+  position: relative;
+  display: flex;
+  margin: 15rpx 0;
+}
+
+.hotspot_left {
+  height: 100rpx;
+}
+
+.hotspot_left image {
+  width: 56rpx;
+  height: 56rpx;
+  margin-top: 22rpx;
+}
+
+.hotspot_img {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 10rpx 0 20rpx;
+  border-radius: 50%;
+}
+
+.hotspot_img image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.hotspot_right {
+  display: flex;
+  /* padding-right: 25rpx; */
+  font-size: 24rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hotspot_project {
+  position: absolute;
+  right: 0;
+  padding-right: 20rpx;
+  /* padding-left:20rpx; */
+}
+
+/* 每日必逛 */
+
+.product {
+  width: 100%;
+  border-radius: 20rpx;
+  padding: 0 20rpx;
+  background-color: #fff;
+  /* margin-top: 15rpx; */
+}
+
+.product_tit {
+  margin-top: 17rpx;
+  padding-top: 25rpx;
+  padding-left: 10rpx;
+}
+
+.product_tit .tit1 {
+  font-size: 32rpx;
+  color: rgb(63, 63, 63);
+  font-weight: 700;
+}
+
+.product_tit .tit2 {
+  font-size: 24rpx;
+  color: rgb(127, 134, 153);
+  padding-left: 28rpx;
+}
+
+.product_name {
+  margin-top: 30rpx;
+  width: 710rpx;
+  height: 426rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #f7f7f7;
+}
+
+.img_left {
+  width: 284rpx;
+  height: 426rpx;
+  border-right: 1rpx solid #f7f7f7;
+  border-bottom: none;
+  /* border-right: 1rpx solid #f7f7f7; */
+}
+
+.img_left image {
+  width: 284rpx;
+  height: 426rpx;
+}
+.img_right{
+  border-bottom:1rpx solid #f7f7f7;
+ 
+}
+.img_right_top {
+  border-right: 1rpx solid #f7f7f7;
+  width: 426rpx;
+  height: 213rpx;
+}
+
+.img_right_top image {
+  width: 426rpx;
+  height: 213rpx;
+}
+.img_bottom{
+ border-top: 1rpx solid #f7f7f7;
+
+}
+.img_bottom_left {
+  border-right: 1rpx solid #f7f7f7;
+  border-left: none;
+  width: 213rpx;
+  height: 213rpx;
+}
+
+.img_bottom_left image {
+  width: 213rpx;
+  height: 213rpx;
+}
+
+.img_bottom_right {
+  width: 213rpx;
+
+ border-bottom: 1rpx solid #f7f7f7;
+ border-left: none;
+  height: 213rpx;
+}
+
+.img_bottom_right image {
+  width: 213rpx;
+  height: 213rpx;
+}
+
+/* 汽车清洁 */
+
+.clean_tit {
+  padding-top: 25rpx;
+  padding-left: 10rpx;
+}
+
+.clean_tit .tit1 {
+  font-size: 32rpx;
+  color: rgb(63, 63, 63);
+  font-weight: 700;
+}
+
+.clean_tit .tit2 {
+  font-size: 24rpx;
+  color: rgb(127, 134, 153);
+  padding-left: 28rpx;
+}
+
+.clean_name {
+  width: 710rpx;
+  height: 210rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #f7f7f7;
+  margin-top: 30rpx;
+}
+
+.clean_left {
+  width: 355rpx;
+  height: 210rpx;
+  border-right: 1rpx solid #f7f7f7;
+}
+
+.clean_left image {
+  width: 355rpx;
+  height: 210rpx;
+}
+
+.clean_right {
+  width: 355rpx;
+  height: 210rpx;
+}
+
+.clean_right image {
+  width: 355rpx;
+  height: 210rpx;
+}
+
+/* 汽车保养 */
+
+.maintain_tit {
+  padding-top: 25rpx;
+  padding-left: 10rpx;
+}
+
+.maintain_tit .tit1 {
+  font-size: 32rpx;
+  color: rgb(63, 63, 63);
+  font-weight: 700;
+}
+
+.maintain_tit .tit2 {
+  font-size: 24rpx;
+  color: rgb(127, 134, 153);
+  padding-left: 28rpx;
+}
+
+.maintain_name {
+  width: 710rpx;
+  height: 210rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #f7f7f7;
+  margin-top: 30rpx;
+}
+
+.maintain_left {
+  width: 355rpx;
+  height: 210rpx;
+  border-right: 1rpx solid #f7f7f7;
+}
+
+.maintain_left image {
+  width: 355rpx;
+  height: 210rpx;
+}
+
+.maintain_right {
+  width: 355rpx;
+  height: 210rpx;
+}
+
+.maintain_right image {
+  width: 355rpx;
+  height: 210rpx;
+}
+
+/* 弹框 */
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.modal-dialog {
+  width: 620rpx;
+  height: 840rpx;
+    /* height: 400rpx; */
+  position: fixed;
+  top: 24%;
+  left: 10%;
+  z-index: 2;
+  background: url("https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E8%83%8C%E6%99%AF.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.modal-activity {
+  width: 570rpx;
+  height: 180rpx;
+  background: url("https://gzch.oss-cn-beijing.aliyuncs.com/office/image/%E5%88%B81.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 10rpx;
+}
+
+.modal-receive {
+  width: 546rpx;
+  height: 146rpx;
+  margin-top: 20rpx;
+  /* background: saddlebrown; */
+}
+
+.modal-delete {
+  width: 56rpx;
+  height: 56rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  color:#ffffff;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color:#FFFFFF;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color:#39b54a;
+}

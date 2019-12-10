@@ -1,0 +1,8 @@
+.box{text-align: center;margin-top:300rpx;}
+.box image{width: 150rpx;height:150rpx}
+.vier-wel{text-align: center;font-size:26rpx;}
+.vier1-wel{text-align: center;margin-bottom: 200rpx;font-size:26rpx;margin-top:30rpx;}
+.cu-btn{background-color: #f37b1d;width:600rpx;color:#fff;}
+.padding-xl{padding: 74rpx;}
+.procol{width: 100%;position: absolute;bottom: 30rpx;}
+.p_text{text-align: center;font-size: 22rpx;color: #ccc;}

@@ -1,0 +1,18 @@
+/* pages/information/information.wxss */
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
+}
+.cu-btn{
+  padding: 0 100rpx;
+  position: absolute;
+  bottom: 50rpx;
+  left: 30rpx;
+  width: 90%;
+  height: 100rpx;
+}
+.data_h1{
+  padding: 0 30rpx;
+  font-size: 50rpx;
+  height: 60rpx;
+}

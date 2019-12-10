@@ -1,0 +1,112 @@
+/* pages/information/information.wxss */
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
+}
+
+.cu-btn{
+  padding: 0 100rpx;
+  position: absolute;
+  bottom: 50rpx;
+  left: 30rpx;
+  width: 90%;
+  height: 100rpx;
+}
+.VerticalNav.nav .cu-item{
+  font-size: 28rpx;
+  line-height: 100rpx;
+}
+.cu-list.menu>.cu-item .content>view:first-child{
+  font-size:24rpx;
+}
+.text_num{
+  font-size: 20rpx;
+  width: 130rpx;
+  text-align: left;
+  }
+.text-red, .line-red, .lines-red{
+  font-size: 26rpx;
+}
+image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.text-grey, .line-grey, .lines-grey{
+  font-size: 24rpx;
+}
+.text-gray, .line-gray, .lines-gray{
+  color: #f74342;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+}
+
+.cu-tags{
+  transform: translateY(23rpx);
+}
+.cu-tags{
+  font-size: 20rpx;
+  color: rgb(191,191,191);
+  background-color:#fff;
+}
+/* .content{
+  padding: 0 20rpx;
+} */
+.search{
+  width: 100%;
+  height: 90rpx;
+  text-align: center;
+  overflow: hidden;
+}
+.search input{
+  text-align: center;
+  border-radius: 30rpx;
+  width: 100%;
+  color: #333;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  height: 70rpx;
+  background-color: #f7f7f7;
+}
+
+
+
+/* =============== */
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+  color: rgb(100,100,100);
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+.nav .cu-item{
+  padding: 8rpx 20rpx;
+}
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+}
+.VerticalMain{
+  background-color: #f1f1f1;
+}
